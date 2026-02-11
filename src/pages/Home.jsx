@@ -26,7 +26,7 @@ function Home() {
               download
               className="rounded-md bg-cyan-300 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-200"
             >
-              Download Resume
+              Download Resume.
             </a>
             <SocialLinks />
           </div>
