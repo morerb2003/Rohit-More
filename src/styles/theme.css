@@ -1,0 +1,33 @@
+:root {
+  --brand: #22d3ee;
+  --brand-strong: #0891b2;
+  --surface: #0b1121;
+  --surface-2: #111827;
+  --text-muted: #94a3b8;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.glass-card {
+  @apply rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur;
+}
+
+.section-padding {
+  @apply py-20 sm:py-24;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #67e8f9 0%, #22d3ee 30%, #2dd4bf 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
