@@ -9,7 +9,7 @@ function Projects() {
         <SectionHeading
           eyebrow="Projects"
           title="Featured Work"
-          description="Selected work demonstrating full stack architecture, ranking logic, API integration, and user-focused interfaces."
+          description="Selected work demonstrating full stack architecture, real-time communication, API integration, and user-focused interfaces."
         />
 
         <div className="grid gap-6 md:grid-cols-2">

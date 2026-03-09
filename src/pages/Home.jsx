@@ -36,13 +36,19 @@ function Home() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mx-auto w-full max-w-sm"
+          className="mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px]"
         >
-          <div className="glass-card p-3">
+          <div className="glass-card overflow-hidden p-3">
             <img
               src={profileSummary.profileImage}
               alt="Rohit portrait"
-              className="h-auto w-full rounded-xl border border-slate-800 object-cover"
+              width={3648}
+              height={2052}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 400px, (min-width: 640px) 360px, 320px"
+              className="h-[200px] w-full rounded-xl border border-slate-800 object-cover object-center sm:h-[230px] lg:h-[450px]"
             />
           </div>
         </motion.div>

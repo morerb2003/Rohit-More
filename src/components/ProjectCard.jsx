@@ -8,9 +8,16 @@ function ProjectCard({ project }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.45 }}
-      className="glass-card overflow-hidden"
+      className="group glass-card overflow-hidden"
     >
-      <img src={project.image} alt={project.title} className="h-52 w-full object-cover" />
+      <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+      </div>
       <div className="p-6">
         <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">{project.title}</h3>
         <p className="mt-3 text-sm leading-6 text-slate-300">{project.description}</p>

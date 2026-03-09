@@ -1,6 +1,5 @@
 import SectionHeading from '../components/SectionHeading'
-import SkillCard from '../components/SkillCard'
-import { skills } from '../assets/portfolioData'
+import { technicalSkills } from '../assets/portfolioData'
 
 function Skills() {
   return (
@@ -8,13 +7,25 @@ function Skills() {
       <div className="section-shell">
         <SectionHeading
           eyebrow="Skills"
-          title="Technology Stack"
-          description="Focused on backend reliability and frontend user experience with modern full stack tools."
+          title="Technical Skills"
+          description="Core technologies and concepts I use to build full stack applications."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skill) => (
-            <SkillCard key={skill.name} name={skill.name} level={skill.level} />
+          {technicalSkills.map((group) => (
+            <article key={group.category} className="glass-card p-5">
+              <h3 className="text-base font-semibold text-white">{group.category}</h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
