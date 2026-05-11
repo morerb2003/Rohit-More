@@ -1,14 +1,13 @@
-import SocialLinks from './SocialLinks'
+import React from 'react';
 
-function Footer() {
+const Footer = () => {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950/95 py-8">
-      <div className="section-shell flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
-        <p className="text-sm text-slate-400">Copyright {new Date().getFullYear()} Rohit More. All rights reserved.</p>
-        <SocialLinks />
-      </div>
+    <footer>
+      <div className="footer-logo">ROHIT<em>.</em>MORE</div>
+      <div>© 2026 // ALL RIGHTS RESERVED</div>
+      <div>📍 PUNE, INDIA</div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

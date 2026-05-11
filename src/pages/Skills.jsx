@@ -1,36 +1,52 @@
-import SectionHeading from '../components/SectionHeading'
-import { technicalSkills } from '../assets/portfolioData'
+import React, { useEffect } from 'react';
+import { skillMatrix } from '../assets/portfolioData';
 
-function Skills() {
+const Skills = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+            fill.style.width = fill.getAttribute('data-percent');
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="section-padding">
-      <div className="section-shell">
-        <SectionHeading
-          eyebrow="Skills"
-          title="Technical Skills"
-          description="Core technologies and concepts I use to build full stack applications."
-        />
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {technicalSkills.map((group) => (
-            <article key={group.category} className="glass-card p-5">
-              <h3 className="text-base font-semibold text-white">{group.category}</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-200"
-                  >
-                    {item}
-                  </span>
-                ))}
+    <section id="skills">
+      <div className="section-header reveal">
+        <h2 className="section-title">THE MATRIX</h2>
+      </div>
+      <div className="skills-matrix reveal">
+        {skillMatrix.map((category, idx) => (
+          <div className="skill-card" key={idx}>
+            <span className="skill-icon">{category.icon}</span>
+            <h3 className="skill-cat">{category.category}</h3>
+            {category.skills.map((skill, sIdx) => (
+              <div className="skill-item" key={sIdx}>
+                <div className="skill-info">
+                  <span>{skill.name}</span>
+                  <span>{skill.percent}</span>
+                </div>
+                <div className="skill-bar">
+                  <div
+                    className="skill-fill"
+                    data-percent={skill.percent}
+                  ></div>
+                </div>
               </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

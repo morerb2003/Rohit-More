@@ -1,52 +1,45 @@
-import { motion } from 'framer-motion'
-import SectionHeading from '../components/SectionHeading'
-import { aboutDetails } from '../assets/portfolioData'
+import React, { useEffect } from 'react';
+import { experience } from '../assets/portfolioData';
 
-function About() {
+const Experience = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="section-padding bg-slate-900/40">
-      <div className="section-shell">
-        <SectionHeading
-          eyebrow="About"
-          title="Professional Snapshot"
-          description="A concise overview of my background, education, and long-term technical goals."
-        />
-
-        <div className="grid gap-6 md:grid-cols-2">
-          <motion.article
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="glass-card p-6"
-          >
-            <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">Professional Summary</h3>
-            <p className="mt-4 leading-7 text-slate-300">{aboutDetails.summary}</p>
-          </motion.article>
-
-          <motion.article
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.05 }}
-            className="glass-card p-6"
-          >
-            <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">Education</h3>
-            <p className="mt-4 leading-7 text-slate-300">{aboutDetails.education}</p>
-          </motion.article>
-        </div>
-
-        <motion.article
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="glass-card mt-6 p-6"
-        >
-          <h3 className="font-['Space_Grotesk'] text-xl font-bold text-white">Career Objective</h3>
-          <p className="mt-4 leading-7 text-slate-300">{aboutDetails.objective}</p>
-        </motion.article>
+    <section id="experience">
+      <div className="section-header reveal">
+        
+        <h2 className="section-title">THE SERVICE LOG</h2>
+      </div>
+      <div className="exp-grid">
+        {experience.map((item, idx) => (
+          <div className="exp-item reveal" key={idx}>
+            <div className="exp-date">{item.date}</div>
+            <div className="exp-role">
+              <h3>{item.role}</h3>
+              <p>{item.desc}</p>
+              <div className="exp-tech">
+                {item.tech.map((t, tIdx) => (
+                  <span className="tech-pill" key={tIdx}>{t}</span>
+                ))}
+              </div>
+            </div>
+            <div className="exp-company">{item.company}</div>
+          </div>
+        ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default Experience;
