@@ -65,7 +65,7 @@ const Home = () => {
         </div>
         <div className="hero-actions reveal">
           <a href="#projects" className="btn-main">VIEW WORK</a>
-          <a href="/resume.pdf" download className="nav-hire" style={{ padding: '18px 40px', fontSize: '0.9rem' }}>RESUME ↓</a>
+          <a href="RohitMore_CV.pdf" download className="nav-hire" style={{ padding: '18px 40px', fontSize: '0.9rem' }}>RESUME ↓</a>
           <a href="mailto:morerb2003@gmail.com" className="nav-hire" style={{ padding: '18px 40px', fontSize: '0.9rem' }}>EMAIL ME</a>
         </div>
       </div>
