@@ -112,7 +112,7 @@ export const contactInfo = {
   location: 'PUNE, MH, INDIA // UTC+5:30',
   socials: [
     { name: 'GitHub', icon: 'bx bxl-github', url: 'https://github.com/morerb2003' },
-    { name: 'LinkedIn', icon: 'bx bxl-linkedin', url: 'https://linkedin.com/in/rohit-more' },
+    { name: 'LinkedIn', icon: 'bx bxl-linkedin', url: 'https://www.linkedin.com/in/rohit-more-6ba115234' },
     { name: 'Blog', icon: 'bx bx-news', url: '#' }
   ]
 }
